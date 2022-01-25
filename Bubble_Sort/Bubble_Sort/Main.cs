@@ -10,7 +10,7 @@ namespace baekjoon
     {
         static void Main(string[] args)
         {
-            No23968 no23968 = new No23968();
+            No23969 no23969 = new No23969();
 
             string str = Console.ReadLine();
             string[] list = str.Split(' ');
@@ -19,8 +19,8 @@ namespace baekjoon
 
             str = Console.ReadLine();
             int[] array = new int[index];
-            no23968.arrayset(str, array);
-            no23968.BubbleSort(array, Count);
+            no23969.arrayset(str, array);
+            no23969.BubbleSort(array, Count);
         }
     }
 }
