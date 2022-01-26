@@ -1,17 +1,8 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
-namespace baekjoon
+﻿namespace baekjoon
 {
 
     public class No24051
     {
-        private string str = null;
-        private string[] list = null;
-        private int index;
-        private int Count;
-        private int[] array;
-        private int Temp = -1;
 
         public void arrayset(String numbers, int[] array)
         {
@@ -22,51 +13,41 @@ namespace baekjoon
             }
         }
 
-        public void work()
+        public void work(string str, int[] array, int count)
         {
-            str = Console.ReadLine();
-            list = str.Split(' ');
-            index = Int32.Parse(list[0]);
-            Count = Int32.Parse(list[1]);
-
-            array = new int[index];
-            str = Console.ReadLine();
             arrayset(str, array);
-            Insertion_sort();
-            Printmsg();
+            Insertion_sort(array, count);
         }
 
-        public void Insertion_sort()
+        public void Insertion_sort(int[] array, int count)
         {
-            int index = 0;
             int jndex = 0;
             int key = 0;
 
             int nCount = 0;
+            int Temp = -1;
 
-            for (index = 1; index < array.Length; index++)  // 기준이 될 키를 선정 두번째부터 끝까지
+            for (int index = 1; index < array.Length; index++)  // 기준이 될 키를 선정 두번째부터 끝까지
             {
                 key = array[index];
                 for (jndex = index - 1; jndex >= 0 && array[jndex] > key; jndex--)
                 {
                     array[jndex + 1] = array[jndex];
-                    if (nCount == Count)
+                    if (nCount == count)
                     {
                         Temp = array[jndex + 1];
                     }
                     nCount++;
                 }
                 array[jndex + 1] = key;
-                if (nCount == Count)
+                if (nCount == count)
                 {
                     Temp = key;
                 }
                 nCount++;
             }
-        }
-        public void Printmsg()
-        {
-            Console.Write(Temp);
+            nCount--;
+            Console.WriteLine(Temp);
         }
     }
 }
