@@ -19,6 +19,8 @@ namespace baekjoon
 
             str = Console.ReadLine();
             int[] array = new int[index];
+
+
             no23969.arrayset(str, array);
             no23969.BubbleSort(array, Count);
         }
