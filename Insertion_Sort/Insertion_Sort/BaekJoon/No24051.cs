@@ -41,7 +41,7 @@ namespace baekjoon
             for (index = 1; index < array.Length; index++)  // 기준이 될 키를 선정 두번째부터 끝까지
             {
                 key = array[index];
-                for (jndex = index - 1; jndex >= 0 && array[index] > key; jndex--)  // 키값을 기준으로 내림차순으로 비교한다. + 키값보다 큰 상테일 동안 진행
+                for (jndex = index - 1; jndex >= 0 && array[jndex] > key; jndex--)  // 키값을 기준으로 내림차순으로 비교한다. + 키값보다 큰 상테일 동안 진행
                 {
                     array[jndex + 1] = array[jndex];
                 }
