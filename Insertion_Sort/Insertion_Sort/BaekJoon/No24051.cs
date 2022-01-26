@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace baekjoon
 {
@@ -10,6 +11,7 @@ namespace baekjoon
         private int index;
         private int Count;
         private int[] array;
+        private int Temp = -1;
 
         public void arrayset(String numbers, int[] array)
         {
@@ -31,6 +33,7 @@ namespace baekjoon
             str = Console.ReadLine();
             arrayset(str, array);
             Insertion_sort();
+            Printmsg();
         }
 
         public void Insertion_sort()
@@ -38,20 +41,32 @@ namespace baekjoon
             int index = 0;
             int jndex = 0;
             int key = 0;
+
+            int nCount = 0;
+
             for (index = 1; index < array.Length; index++)  // 기준이 될 키를 선정 두번째부터 끝까지
             {
                 key = array[index];
-                for (jndex = index - 1; jndex >= 0 && array[jndex] > key; jndex--)  // 키값을 기준으로 내림차순으로 비교한다. + 키값보다 큰 상테일 동안 진행
+                for (jndex = index - 1; jndex >= 0 && array[jndex] > key; jndex--)
                 {
                     array[jndex + 1] = array[jndex];
+                    if (nCount == Count)
+                    {
+                        Temp = array[jndex + 1];
+                    }
+                    nCount++;
                 }
                 array[jndex + 1] = key;
+                if (nCount == Count)
+                {
+                    Temp = key;
+                }
+                nCount++;
             }
-
-            foreach (int n in array)
-            {
-                Console.Write("{0} ", n);
-            }
+        }
+        public void Printmsg()
+        {
+            Console.Write(Temp);
         }
     }
 }
