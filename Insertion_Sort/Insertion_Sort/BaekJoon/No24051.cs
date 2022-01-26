@@ -3,7 +3,11 @@
 
     public class No24051
     {
-
+        public void work(string str, int[] array, int count)
+        {
+            arrayset(str, array);
+            Insertion_sort(array, count);
+        }
         public void arrayset(String numbers, int[] array)
         {
             string[] numberlist = numbers.Split(' ');
@@ -12,13 +16,6 @@
                 array[index] = Int32.Parse(numberlist[index]);
             }
         }
-
-        public void work(string str, int[] array, int count)
-        {
-            arrayset(str, array);
-            Insertion_sort(array, count);
-        }
-
         public void Insertion_sort(int[] array, int count)
         {
             int jndex = 0;
