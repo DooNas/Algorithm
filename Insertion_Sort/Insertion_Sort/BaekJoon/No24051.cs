@@ -12,7 +12,7 @@
         {
             string[] numberlist = numbers.Split(' ');
             for (int index = 0; index < array.Length; index++)
-            {
+            { 
                 array[index] = Int32.Parse(numberlist[index]);
             }
         }
